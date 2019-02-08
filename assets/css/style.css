@@ -1,5 +1,10 @@
 .jumbotron{
     font-family: Georgia, 'Times New Roman', Times, serif;
+    background-image: url();
+}
+
+body{
+    background-image: url();
 }
 
 /* Current Train Schedule below subtitle */
