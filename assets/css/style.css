@@ -1,10 +1,18 @@
 .jumbotron{
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background-image: url();
+    
 }
 
+.jumbotron-fluid {
+    background-image: url(../image/travel.jpg);
+    
+}
+/* real time - jumbotron  */
+p{
+    font-size: x-large;
+}
 body{
-    background-image: url();
+    background-image: url(../image/map.png);
 }
 
 /* Current Train Schedule below subtitle */
@@ -12,8 +20,41 @@ body{
     border-top: none;
 }
 
+/* table body */
+.card-body {
+background-color: azure;
+}
+/* table header */
+b, strong {
+    color: white;
+}
+
+/* submit button */
+.btn-primary{
+    
+    background-color: #145826;
+    font: bolder;
+}
+
+/* jumbotron text */
+#color {
+    
+    color: #0007E8;
+}
+/* table header */
+.card-header {
+    background-color: #0007E8;
+   
+}
 #time{
-    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif */
+    
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+/* popup message */
+.popmessage{
+margin-left: 30%;
+background-color: #145826;
+color: white;
+font-family: Georgia, 'Times New Roman', Times, serif;
 }
 

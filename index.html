@@ -7,10 +7,8 @@
         <title>Anytime is Train Time</title>
          <!-- link jQuesy -->
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <!-- Link firebase-->
-        <!-- <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script> -->
-        <!-- <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script> -->
 
+        <!-- Link firebase-->
         <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-database.js"></script>
 
@@ -26,7 +24,6 @@
         <!-- link favicon -->
         <link rel="icon" href="./assets/image/favicon.ico">
 
-
     </head>
     <body>
         <!-- Link to Moment.js file-->
@@ -34,20 +31,22 @@
             <!-- jumbotron -->
             <div class="container">
                 <div class="jumbotron jumbotron-fluid text-center">
-                    <div class="container">
+                    <!-- <div class="container"> -->
+                        <div id="color">
                         <h1 class="display-4">Anytime is Train Time</h1>
-                        <p class="lead">Choo Choo. Chee Chee.</p>
+                        <p class="lead"> <h2>Choo Choo. Chee Chee.</h2></p>
                         <!--  -->
                         <i class="far fa-clock"></i>
                         
                         <p id="time"></p>
                         <!--  -->
                         <!-- <p id="time"></p> -->
+                    </div>
                         
                     </div>
                 </div> <!-- jumbotron Container-->
                 
-
+                <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                             
@@ -62,9 +61,7 @@
                                             <th scope="col">Frequency (min)</th>
                                             <th scope="col">Next Arrival</th>
                                             <th scope="col">Minutes Away</th>
-                                              <!-- delete 999999999999999999999999999999 -->
-                                              <!-- <th scope="col">Delete</th> -->
-                                    <!-- 99999999999999999999999999999 -->
+                                 
                                         </tr>
                                     </thead>
                                     <!-- new added train info  -->
@@ -76,11 +73,15 @@
                     </div>
                 </div>
 
+                <!-- popup message "Train Added Successfully!!!"-->
+                <h2><span class="popmessage"></span></h2>
+                                           
                 <div class="row">
                     <div class="col-md-12">
-                            
+                
                         <div class="card mb-4">
-                            <div class="card-header"><b>Add Train</b></div>
+                
+                            <div class="card-header"><b>Add Train <i class="fa fa-train" aria-hidden="true"></i></b></div>
                             <div class="card-body">
                                    
                                 <form>
@@ -101,9 +102,7 @@
                                         <input class="form-control"placeholder="" type="text" id="frequency">
                                     </div>
 
-                                  <!-- delete 333333333333333333 -->
-                                  <!-- <div><a href="#" class="remove_block">Remove</a></div> -->
-                                  <!-- 333333333333333333333333 -->
+                                 
                                     <button class="btn btn-primary float-left" id="add-train-btn">Submit</button>
                                 </form>
                             </div>

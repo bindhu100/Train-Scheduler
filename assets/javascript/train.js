@@ -32,13 +32,27 @@ var config = {
     database.ref().push({
       name: name,
       destination: destination,
-      firstTrain:firstTrain,
-      frequency:frequency,
+      firstTrain: firstTrain,
+      frequency: frequency,
       dateAdded: firebase.database.ServerValue.TIMESTAMP
+      
 
     });
     $("form")[0].reset();
+    
+    // 
+    // popup message
+    $(".popmessage").text("Train Added Successfully!!!")
+    var fade_out = function() {
+       $(".popmessage").empty();
+       }
+     
+       setTimeout(fade_out, 4000);
 
+    renderButtons();
+
+   ClearFields();
+    // 
 
     // to clear the user input text box after click"Submit button
     function ClearFields() {
@@ -49,30 +63,6 @@ var config = {
   ClearFields();
   });
 
-  // delete 3333333333333333333333333333333
-  // function add_block() {
-  //   var curDiv = $('#parent');
-  //   var i = $('#parent div').size()/4 + 1;
-  //   var newDiv='<div id="block_'+ i + '" class="parent_div">' +
-  //   '<div>' +
-  //   '<input type="text">' +
-  //   '</div>' +
-  //   '<img src="arrow.jpg">' +
-  //   '<div>' +
-  //   '<input type="text">' +
-  //   '</div><div><a class="remove_block" href="#">Remove</a></div>' +
-  //   '</div>';
-  //   $(newDiv).appendTo(curDiv);
-  //   };
-  //   $('#parent').on('click', 'a.remove_block', function(events){
-  //     $(this).parents('div').eq(1).remove();
-  //  });
-  //  add_block() 
-  // 333333333333333333333333333
-
-  // Create Firebase event for adding train to the database and a row in the html when  adds an entry
-  // 9999999999999999999999999999
-  // display time in jumbotron Html-<p id="time"></p>
   var datetime = null,
         date = null;
 
@@ -115,6 +105,15 @@ $(document).ready(function(){
     "</td><td>" + childSnapshot.val().frequency +
     "</td><td>"+ nextTrain +
     "</td><td>" + minAway + "</td></tr>")
+
+    // 
+    $('#add-newRow').on('click', 'input[type="button"]', function () {
+      $(this).closest('tr').remove();
+  })
+  $('p input[type="button"]').click(function () {
+      $('#myTable').append('<tr><td><input type="text" class="fname" /></td><td><input type="button" value="Delete" /></td></tr>')
+  });
+    // 
 
 
     
