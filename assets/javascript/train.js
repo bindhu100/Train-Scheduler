@@ -25,33 +25,37 @@ var config = {
     var destination = $("#destination").val().trim();
     var firstTrain  = $("#first-train").val().trim();
     var frequency = $("#frequency").val().trim();
-   
-  
-
-    // Uploads employee data to the database
-    database.ref().push({
-      name: name,
-      destination: destination,
-      firstTrain: firstTrain,
-      frequency: frequency,
-      dateAdded: firebase.database.ServerValue.TIMESTAMP
-      
-
-    });
-    $("form")[0].reset();
     
-    // 
-    // popup message
-    $(".popmessage").text("Train Added Successfully!!!")
-    var fade_out = function() {
-       $(".popmessage").empty();
-       }
-     
-       setTimeout(fade_out, 4000);
+    // input validation form- if any of the input field are missing give an alert
+    if (!name || !destination || !firstTrain || !frequency) {
+      alert("Please enter a valid response in all fields!");
+    } else {
+  
+      // Uploads employee data to the database
+      database.ref().push({
+        name: name,
+        destination: destination,
+        firstTrain: firstTrain,
+        frequency: frequency,
+        dateAdded: firebase.database.ServerValue.TIMESTAMP
+        
 
-    renderButtons();
+      });
+      $("form")[0].reset();
+      
+      // 
+      // popup message
+      $(".popmessage").text("Train Added Successfully!!!")
+      var fade_out = function() {
+        $(".popmessage").empty();
+        }
+      
+        setTimeout(fade_out, 4000);
 
-   ClearFields();
+      renderButtons();
+
+      ClearFields();
+    }
     // 
 
     // to clear the user input text box after click"Submit button
@@ -60,7 +64,7 @@ var config = {
       document.getElementById("train-name").value = "";
       
   }
-  ClearFields();
+  // ClearFields();
   });
 
   var datetime = null,
@@ -79,11 +83,11 @@ $(document).ready(function(){
   // 999999999999999999999999
 
   database.ref().on("child_added", function(childSnapshot) {
-    var nextArr;
+    
     var minAway;
 
      // First Time (pushed back 1 year to make sure it comes before current time)
-     var firstTimeConverted = moment(childSnapshot.val().firstTrain, "HH:mm").subtract(1, "years");
+     var firstTimeConverted = moment(childSnapshot.val().firstTrain, "hh:mm").subtract(1, "years");
 
      // Difference between the times
      var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
@@ -96,7 +100,7 @@ $(document).ready(function(){
 
     // Next Train
     var nextTrain = moment().add(minAway, "minutes");
-    nextTrain = moment(nextTrain).format("HH:MM");
+    nextTrain = moment(nextTrain).format("hh:mm");
 
 
     // add data to tbody in html "<tbody id="add-newRow"> </tbody>"
@@ -107,12 +111,12 @@ $(document).ready(function(){
     "</td><td>" + minAway + "</td></tr>")
 
     // 
-    $('#add-newRow').on('click', 'input[type="button"]', function () {
-      $(this).closest('tr').remove();
-  })
-  $('p input[type="button"]').click(function () {
-      $('#myTable').append('<tr><td><input type="text" class="fname" /></td><td><input type="button" value="Delete" /></td></tr>')
-  });
+  //   $('#add-newRow1').on('click', 'input[type="button"]', function () {
+  //     $(this).closest('tr').remove();
+  // })
+  // $('p input[type="button"]').click(function () {
+  //     $('#myTable').append('<tr><td><input type="text" class="fname" />/td><td><input type="button" value="Delete" /></td></tr>')
+  // });
     // 
 
 
