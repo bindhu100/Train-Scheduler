@@ -44,7 +44,7 @@ var config = {
       $("form")[0].reset();
       
       // 
-      // popup message
+      // popup message for adding train
       $(".popmessage").text("Train Added Successfully!!!")
       var fade_out = function() {
         $(".popmessage").empty();
@@ -58,7 +58,7 @@ var config = {
     }
     // 
 
-    // to clear the user input text box after click"Submit button
+    // to clear the user input text box after click "Submit button
     function ClearFields() {
 
       document.getElementById("train-name").value = "";
@@ -110,17 +110,6 @@ $(document).ready(function(){
     "</td><td>"+ nextTrain +
     "</td><td>" + minAway + "</td></tr>")
 
-    // 
-  //   $('#add-newRow1').on('click', 'input[type="button"]', function () {
-  //     $(this).closest('tr').remove();
-  // })
-  // $('p input[type="button"]').click(function () {
-  //     $('#myTable').append('<tr><td><input type="text" class="fname" />/td><td><input type="button" value="Delete" /></td></tr>')
-  // });
-    // 
-
-
-    
      // Handle the errors
     },function(errorObject){
       console.log("Errors handled: " + errorObject.code);
@@ -128,9 +117,6 @@ $(document).ready(function(){
     });
 
 
-    // 3333333333333333333333333333333
- 
-    // 3333333333333333333333333333
     
     database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot) {
       // Change the HTML to reflect

@@ -62,3 +62,40 @@ color: white;
 font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+.btn{
+    float: right;
+    
+}
+
+#modal{
+background-color: #00bdf5;
+}
+
+/* adding asterisk to required fields */
+label.required::after {
+    content: '*';
+    margin-right: 5px;
+    color: red;
+  }
+
+  /* model content */
+  .p1{
+      font-size: medium;
+  }
+/* model body */
+  .modal-body {
+      background-image: url(../image/water.jpg);
+  }
+/* model header */
+  .modal-header{
+    background-image: url(../image/water.jpg);
+}
+
+/* model footer */
+.modal-footer{
+    background-image: url(../image/water.jpg);
+}
+/* model close button */
+.btn-secondary {
+    background-color: blue
+}
